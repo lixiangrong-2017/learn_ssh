@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN" 
+	"http://struts.apache.org/dtds/struts-2.3.dtd">		
+	<!-- xml文档描述 -->	
+	<!-- 约束xml文档中可以使用哪些标签，不可以使用哪些标签 -->
+<struts>
+	<package name="ssh" extends="struts-default" namespace="/">
+		<action name="employee_*" class="employeeAction" method="{1}">
+			<result name="input">/index.jsp</result>
+			<result name="success" type="redirect">/frame.jsp</result>
+			<result name="findAll">/jsp/employee/list.jsp</result>
+			<result name="save_UI">/jsp/employee/add.jsp</result>
+			<result name="saveSuccess" type="redirectAction">employee_findAll.action</result>
+			<result name="editSuccess" >/jsp/employee/edit.jsp</result>
+			<result name="updateSuccess" type="redirectAction">employee_findAll.action</result>
+			<result name="deleteSuccess" type="redirectAction">employee_findAll.action</result>
+		</action>
+		
+		<action name="department_*" class="DepartmentAction" method="{1}">
+			<result name="findAll">/jsp/department/list.jsp</result>
+			<result name="saveUI">/jsp/department/add.jsp</result>
+			<result name="saveSuccess" type="redirectAction">department_findAll.action</result>
+			<result name="updateSuccess" type="redirectAction">department_findAll.action</result>
+			<result name="deleteSuccess" type="redirectAction">department_findAll.action</result>
+			<result name="editSuccess">/jsp/department/edit.jsp</result>
+		</action>
+	</package>
+
+</struts>
